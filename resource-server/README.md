@@ -35,3 +35,7 @@ curl -v -H "Authorization: Bearer ${TOKEN}" http://localhost:8082/authorized
 ### References
 
 [Spring Boot OAuth tutorial](https://spring.io/guides/tutorials/spring-boot-oauth2)
+
+[Spring Security Documentation - Oauth 2.0 Resource Server](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-oauth2-resource-server)
+
+[Spring Security Documentation - Testing JWT Authentication](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-testing-jwt)
