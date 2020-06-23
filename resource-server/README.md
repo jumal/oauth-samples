@@ -20,10 +20,16 @@ TOKEN=$(curl -s client-3-id:client-3-secret@localhost:8081/oauth/token -dgrant_t
 
 Execute **resource-server**/`src/main/java/com/sample/oauth/resource_server/ResourceServerApplication`
 
-#### Use the JWT Token to Access a Protected Resource
+#### Use the JWT Token to Access an Authenticated Resource
  
 ```
-curl -v -H "Authorization: Bearer ${TOKEN}" http://localhost:8082/test
+curl -v -H "Authorization: Bearer ${TOKEN}" http://localhost:8082/
+```
+
+#### Use the JWT Token to Access an Authorised Resource
+ 
+```
+curl -v -H "Authorization: Bearer ${TOKEN}" http://localhost:8082/authorized
 ```
 
 ### References
