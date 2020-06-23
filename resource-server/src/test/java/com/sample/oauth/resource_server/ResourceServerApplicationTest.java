@@ -1,6 +1,6 @@
 package com.sample.oauth.resource_server;
 
-import com.sample.oauth.resource_server.configuration.SecurityConfiguration;
+import com.sample.oauth.resource_server.configuration.SecurityConfiguration.JwtAuthoritiesExtractor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +65,7 @@ public class ResourceServerApplicationTest {
                 .expectStatus().isForbidden();
         webClient.mutateWith(mockJwt()
                 .jwt(jwt -> jwt.claim("authorities", singletonList("ROLE_USER")))
-                .authorities(new SecurityConfiguration.JwtAuthoritiesConverter()))
+                .authorities(new JwtAuthoritiesExtractor()))
                 .get()
                 .uri("/authorized")
                 .exchange()

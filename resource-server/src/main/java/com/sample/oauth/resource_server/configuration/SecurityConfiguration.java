@@ -33,7 +33,7 @@ public class SecurityConfiguration {
         return http.authorizeExchange()
                 .matchers(toAnyEndpoint()).permitAll()
                 .anyExchange().authenticated().and()
-                .oauth2ResourceServer(server -> server.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthorities())))
+                .oauth2ResourceServer(server -> server.jwt(jwt -> jwt.jwtAuthenticationConverter(authorities())))
                 .csrf().disable()
                 .cors().and()
                 .build();
@@ -49,13 +49,13 @@ public class SecurityConfiguration {
         return configurationSource;
     }
 
-    private static Converter<Jwt, Mono<AbstractAuthenticationToken>> jwtAuthorities() {
+    private static Converter<Jwt, Mono<AbstractAuthenticationToken>> authorities() {
         JwtAuthenticationConverter authenticationConverter = new JwtAuthenticationConverter();
-        authenticationConverter.setJwtGrantedAuthoritiesConverter(new JwtAuthoritiesConverter());
+        authenticationConverter.setJwtGrantedAuthoritiesConverter(new JwtAuthoritiesExtractor());
         return new ReactiveJwtAuthenticationConverterAdapter(authenticationConverter);
     }
 
-    public static class JwtAuthoritiesConverter implements Converter<Jwt, Collection<GrantedAuthority>> {
+    public static class JwtAuthoritiesExtractor implements Converter<Jwt, Collection<GrantedAuthority>> {
 
         @Override
         public Collection<GrantedAuthority> convert(Jwt jwt) {
