@@ -26,6 +26,6 @@ Execute **resource-server**/`src/main/java/com/sample/oauth/resource_server/Reso
 curl -v -H "Authorization: Bearer ${TOKEN}" http://localhost:8082/test
 ```
 
-### Reference
+### References
 
 [Spring Boot OAuth tutorial](https://spring.io/guides/tutorials/spring-boot-oauth2)
