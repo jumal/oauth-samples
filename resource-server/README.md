@@ -23,13 +23,13 @@ Execute **resource-server**/`src/main/java/com/sample/oauth/resource_server/Reso
 #### Use the JWT Token to Access an Authenticated Resource
  
 ```
-curl -v -H "Authorization: Bearer ${TOKEN}" http://localhost:8082/
+curl -i -H "Authorization: Bearer ${TOKEN}" http://localhost:8082
 ```
 
 #### Use the JWT Token to Access an Authorised Resource
  
 ```
-curl -v -H "Authorization: Bearer ${TOKEN}" http://localhost:8082/authorized
+curl -i -H "Authorization: Bearer ${TOKEN}" http://localhost:8082/authorized
 ```
 
 ### References

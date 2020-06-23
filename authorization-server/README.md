@@ -11,7 +11,7 @@ Execute `src/main/java/com/sample/oauth/authorization_server/AuthorizationServer
 #### Test a Client Credential Flow
 
 ```
-curl -v client-2-id:client-2-secret@localhost:8081/oauth/token -dgrant_type=client_credentials -dscope=any
+curl -i client-2-id:client-2-secret@localhost:8081/oauth/token -dgrant_type=client_credentials -dscope=any
 ```
 
 #### Test an Authorization Code Flow
@@ -21,7 +21,7 @@ Browse to [http://localhost:8081/oauth/authorize?grant_type=authorization_code&r
 #### Test a Password Flow
 
 ```
-curl -v client-3-id:client-3-secret@localhost:8081/oauth/token -dgrant_type=password -dscope=any -dusername=enduser -dpassword=password
+curl -i client-3-id:client-3-secret@localhost:8081/oauth/token -dgrant_type=password -dscope=any -dusername=enduser -dpassword=password
 ```
 
 ### References
