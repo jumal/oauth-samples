@@ -12,14 +12,14 @@ import static reactor.core.publisher.Mono.just;
 @RestController
 public class TestController {
 
-    /**
-     * @should require authentication
-     * @should require authorization
-     * @should return the resource
-     */
-    @GetMapping("/test")
+    @GetMapping("/")
+    public Mono<Jwt> notAuthorized(@AuthenticationPrincipal Jwt principal) {
+        return just(principal);
+    }
+
+    @GetMapping("/authorized")
     @PreAuthorize("hasAuthority('ROLE_USER')")
-    public Mono<Jwt> test(@AuthenticationPrincipal Jwt principal) {
+    public Mono<Jwt> authorized(@AuthenticationPrincipal Jwt principal) {
         return just(principal);
     }
 }
