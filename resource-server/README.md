@@ -1,6 +1,6 @@
 ## OAuth Resource Server Sample
 
-OAuth resource server sample using the new Spring Security 5.1+'s OAuth resource server support.
+OAuth resource server sample using Spring Security 5.1+'s OAuth resource server support.
 
 ### Usage
 

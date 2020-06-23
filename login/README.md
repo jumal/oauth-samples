@@ -1,6 +1,6 @@
 ## OAuth Login Sample
 
-OAuth login sample using the new Spring Security 5.1+'s OAuth client support and GitHub.
+OAuth login sample using Spring Security 5.1+'s OAuth client support and GitHub.
 
 ### Usage
 
