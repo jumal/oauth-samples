@@ -27,4 +27,5 @@ curl -v client-3-id:client-3-secret@localhost:8081/oauth/token -dgrant_type=pass
 ### References
 
 [Spring Security OAuth2 Boot documentation](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/)
+
 [Spring Security OAuth2 Authorization Server Sample](https://github.com/spring-projects/spring-security/tree/5.3.3.RELEASE/samples/boot/oauth2authorizationserver)
