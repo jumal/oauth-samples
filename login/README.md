@@ -29,6 +29,6 @@ spring.security.oauth2.client.registration.sample.client-secret=<your-client-sec
 
 [Spring Boot OAuth tutorial](https://spring.io/guides/tutorials/spring-boot-oauth2)
 
-[Spring Security Documentation - Oauth 2.0 Login](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-oauth2-login)
+[Spring Security Documentation: Oauth 2.0 Login](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-oauth2-login)
 
-[Spring Security Documentation - Testing Oauth 2.0 Login](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-testing-oauth2-login)
+[Spring Security Documentation: Testing Oauth 2.0 Login](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-testing-oauth2-login)
