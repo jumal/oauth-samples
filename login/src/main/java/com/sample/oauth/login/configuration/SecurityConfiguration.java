@@ -18,16 +18,14 @@ public class SecurityConfiguration {
 
     @Bean
     SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        return http
-                .authorizeExchange(authorizeExchange -> authorizeExchange
-                        .pathMatchers("/error", "/webjars/**").permitAll()
-                        .matchers(toAnyEndpoint()).permitAll()
-                        .anyExchange().authenticated()
-                )
-                .oauth2Login()
-                .and().csrf().disable()
-                .cors()
-                .and().build();
+        return http.authorizeExchange()
+                .pathMatchers("/error", "/webjars/**").permitAll()
+                .matchers(toAnyEndpoint()).permitAll()
+                .anyExchange().authenticated().and()
+                .oauth2Login().and()
+                .cors().and()
+                .csrf().disable()
+                .build();
     }
 
     @Bean
