@@ -1,6 +1,6 @@
 package com.sample.oauth.resource_server.configuration;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import com.sample.oauth.resource_server.ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -34,18 +34,18 @@ public class SecurityConfiguration {
                 .matchers(toAnyEndpoint()).permitAll()
                 .anyExchange().authenticated().and()
                 .oauth2ResourceServer(server -> server.jwt(jwt -> jwt.jwtAuthenticationConverter(authorities())))
-                .csrf().disable()
                 .cors().and()
                 .build();
     }
 
     @Bean
-    @ConditionalOnProperty(name = "corsEnabled")
-    CorsConfigurationSource corsConfigurationSource() {
+    CorsConfigurationSource corsConfigurationSource(ResourceServerProperties properties) {
         UrlBasedCorsConfigurationSource configurationSource = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.applyPermitDefaultValues();
-        configurationSource.registerCorsConfiguration("/**", configuration);
+        if (properties.isCorsEnabled()) {
+            CorsConfiguration configuration = new CorsConfiguration();
+            configuration.applyPermitDefaultValues();
+            configurationSource.registerCorsConfiguration("/**", configuration);
+        }
         return configurationSource;
     }
 
